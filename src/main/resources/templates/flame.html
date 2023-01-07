@@ -7,7 +7,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
 <script th:inline="javascript">
     let chart = flamegraph()
-        .width(960);
+        .height(window.innerHeight)
+        .width(window.innerWidth)
+        .inverted(true);
 
     const data = [[${flameData}]];
 

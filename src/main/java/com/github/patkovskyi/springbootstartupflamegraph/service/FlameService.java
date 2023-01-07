@@ -5,7 +5,10 @@ import com.github.patkovskyi.springbootstartupflamegraph.domain.actuator.Startup
 import com.github.patkovskyi.springbootstartupflamegraph.domain.d3.D3FlameNode;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,7 +46,22 @@ public class FlameService {
                 .mapToLong(e -> e.duration().toNanos()).sum();
     }
 
-    public D3FlameNode convertEvent(Event e) {
-        return new D3FlameNode(e.startupStep().name(), e.duration().toNanos() * 1e-9);
+    private D3FlameNode convertEvent(Event e) {
+        String displayName = e.startupStep().name();
+
+        // for bean instantiations, print tags first
+        if (Objects.equals(displayName, "spring.beans.instantiate")) {
+            StringBuilder sb = new StringBuilder();
+            List<Map<String, String>> sortedTags = e.startupStep().tags().stream()
+                    .sorted(Comparator.comparing(m -> m.getOrDefault("key", ""))).toList();
+
+            for (Map<String, String> tag : sortedTags) {
+                sb.append(tag.getOrDefault("value", "") + " (" + tag.getOrDefault("key", "") + ") | ");
+            }
+
+            displayName = sb + displayName;
+        }
+
+        return new D3FlameNode(displayName, e.duration().toNanos() * 1e-9);
     }
 }
