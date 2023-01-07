@@ -5,6 +5,9 @@ target/
 dependency-reduced-pom.xml
 tomcat.8080
 
+### Gradle ###
+.gradle
+
 ### IntelliJ IDEA ###
 .idea
 .idea/modules.xml

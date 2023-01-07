@@ -1,4 +1,4 @@
-package com.github.patkovskyi.springbootstartupflamegraph.domain;
+package com.github.patkovskyi.springbootstartupflamegraph.domain.actuator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

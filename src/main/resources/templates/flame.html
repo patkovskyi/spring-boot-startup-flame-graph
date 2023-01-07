@@ -1,0 +1,18 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.css">
+</head>
+<body>
+<div id="chart"></div>
+<script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"></script>
+<script th:inline="javascript">
+    let chart = flamegraph()
+        .width(960);
+
+    const data = [[${flameData}]];
+
+    d3.select("#chart")
+        .datum(data)
+        .call(chart);
+</script>
+</body>

@@ -1,0 +1,69 @@
+###
+POST http://localhost:8080/longest
+Content-Type: application/json
+
+{
+  "springBootVersion" : "2.7.6",
+  "timeline" : {
+    "startTime" : 1673027859.671782000,
+    "events" : [ {
+      "endTime" : 1673027859.725662000,
+      "duration" : 0.044223000,
+      "startTime" : 1673027859.681439000,
+      "startupStep" : {
+        "name" : "spring.boot.application.starting",
+        "id" : 0,
+        "tags" : [ {
+          "key" : "mainApplicationClass",
+          "value" : "proofit.ProofitMain"
+        } ],
+        "parentId" : null
+      }
+    }, {
+      "endTime" : 1673027860.479148000,
+      "duration" : 0.602311000,
+      "startTime" : 1673027859.876837000,
+      "startupStep" : {
+        "name" : "spring.boot.application.environment-prepared",
+        "id" : 1,
+        "tags" : [ ],
+        "parentId" : null
+      }
+    } ]
+  }
+}
+
+###
+POST http://localhost:8080/flame
+Content-Type: application/json
+
+{
+  "springBootVersion" : "2.7.6",
+  "timeline" : {
+    "startTime" : 1673027859.671782000,
+    "events" : [ {
+      "endTime" : 1673027859.725662000,
+      "duration" : 0.044223000,
+      "startTime" : 1673027859.681439000,
+      "startupStep" : {
+        "name" : "spring.boot.application.starting",
+        "id" : 0,
+        "tags" : [ {
+          "key" : "mainApplicationClass",
+          "value" : "proofit.ProofitMain"
+        } ],
+        "parentId" : null
+      }
+    }, {
+      "endTime" : 1673027860.479148000,
+      "duration" : 0.602311000,
+      "startTime" : 1673027859.876837000,
+      "startupStep" : {
+        "name" : "spring.boot.application.environment-prepared",
+        "id" : 1,
+        "tags" : [ ],
+        "parentId" : null
+      }
+    } ]
+  }
+}

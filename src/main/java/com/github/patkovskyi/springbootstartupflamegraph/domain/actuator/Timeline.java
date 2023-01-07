@@ -1,4 +1,4 @@
-package com.github.patkovskyi.springbootstartupflamegraph.domain;
+package com.github.patkovskyi.springbootstartupflamegraph.domain.actuator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -7,5 +7,6 @@ import java.util.List;
 
 public record Timeline(
         @JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT)
-        Instant startTime, List<Event> events) {
+        Instant startTime,
+        List<Event> events) {
 }
